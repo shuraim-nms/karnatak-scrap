@@ -1,0 +1,7 @@
+/*
+  Content-Security-Policy: default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.googleapis.com https://scrap-pricing-default-rtdb.asia-southeast1.firebasedatabase.app;
+    connect-src 'self' https://scrap-pricing-default-rtdb.asia-southeast1.firebasedatabase.app https://www.googleapis.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    img-src * data:;

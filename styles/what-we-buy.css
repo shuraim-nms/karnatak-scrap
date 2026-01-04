@@ -1,0 +1,241 @@
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #7db1ff, #eef2f3);
+  color: #055340;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding-top: 50px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+h1, h2 {
+  color: #000000;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ========== WHAT WE BUY SECTION ========== */
+.what-we-buy {
+  padding: 80px 20px;
+  text-align: center;
+}
+.what-we-buy h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+.what-we-buy .intro {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #2d3436;
+}
+.buy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+.buy-grid .item {
+  background-color: var(--bg-color, #000000); /* default black if not set */
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.buy-grid .item:hover {
+  transform: translateY(-8px);
+}
+.buy-grid .item h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #000504; /* Updated product name color */
+}
+.buy-grid .item p {
+  font-size: 20px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.buy-grid .item img {
+  width: 140px; /* Enlarged image */
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.buy-grid .item i {
+  font-size: 80px; /* Enlarged icon */
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+/* ========== FLOATING BUTTONS ========== */
+.floating-buttons {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.floating-buttons a {
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  line-height: 58px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.floating-buttons .call-now {
+  background: #0984e3;
+}
+.floating-buttons a:hover {
+  transform: scale(1.15);
+}
+
+/* ========== DROPDOWN STYLES ========== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn {
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 10000;
+  border-radius: 8px;
+  padding: 10px 0;
+  transition: all 0.3s ease-in-out;
+}
+.dropdown-content a {
+  padding: 10px 15px;
+  display: block;
+  color: #2d3436;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-content.show {
+  display: block;
+}
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 10px;
+    box-shadow: none;
+  }
+  .dropdown-content a {
+    padding: 10px 20px;
+    background: #fff;
+  }
+}
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 300px;
+  padding: 1rem;
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #00cec9;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#statusMsg {
+  text-align: center;
+  margin-top: 15px;
+  color: green;
+  font-size: 15px;
+}
+
+/* ========== Form Animation ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

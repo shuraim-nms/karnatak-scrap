@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Karnataka Scrap Trading</title>
+  <link rel="stylesheet" href="styles/contact.css" />
+  <link rel="stylesheet" href="styles/pickup.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+</head>
+<body>
+
+<!-- Top Contact Bar -->
+<div class="top-contact-bar">
+  <div class="container">
+    <span>
+      📞 <a href="tel:+917676371230" style="color: inherit; text-decoration: none;">+91-7676371230</a> |
+      ✉️ <a href="mailto:karnatakascrap@gmail.com" style="color: inherit; text-decoration: none;">karnatakascrap@gmail.com</a>
+    </span>
+  </div>
+</div>
+
+
+<!-- Header -->
+<header>
+  <div class="logo">♻️ Karnataka Scrap Trading</div>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <nav id="main-nav">
+    <a href="index.html" >Home</a>
+    <a href="pickup.html">Pickup</a>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">Services ▾</a>
+      <div class="dropdown-content">
+        <a href="services/iron.html">🧱 Iron Scrap</a>
+        <a href="services/plastic.html">🧴 Plastic Scrap</a>
+        <a href="services/paper.html">📄 Paper Scrap</a>
+        <a href="services/e-waste.html">💻 E-Waste</a>
+        <a href="services/aluminium.html">🧲 Aluminium Cables</a>
+        <a href="services/copper.html">🔌 Copper Wires</a>
+        <a href="services/factory.html">🏢 Factory Scrap</a>
+      </div>
+    </div>    
+    <a href="what-we-buy.html">What We Buy</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html"class="active">Contact</a>
+  </nav>
+</header>
+
+<section class="contact-section">
+  <h1>📞 Contact Karnataka Scrap Trading</h1>
+  <p>Reach out to us anytime. We’re happy to help you with scrap pickup & rates.</p>
+
+  <div class="contact-wrapper">
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="👤 Your Name" required />
+      <input type="email" name="email" placeholder="📧 Email Address" required />
+      <input type="tel" name="phone" placeholder="📱 Mobile Number" required />
+      <textarea name="message" placeholder="✍️ Your Message" rows="4" required></textarea>
+      <button type="submit">📨 Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <h3>📍 Head Office</h3>
+      <p>Ballary to Koppal Road, Near TB Dam, Vijayanagar District, Karnataka</p>
+      <h3>📱 WhatsApp</h3>
+      <p><a href="https://wa.me/917676371230" target="_blank">Click here to Chat</a></p>
+      <h3>📌 Location on Map</h3>
+      <iframe src="https://www.google.com/maps?q=Ballary+to+Koppal+Road+Karnataka&output=embed" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>ABOUT COMPANY</h3>
+      <p>We are the best resources for the scrap disposal as we comprehend the need of the materials in proper spots. We take all kinds of waste items to reuse, keeping it eco-friendly and pocket-pleasing.</p>
+    </div>
+    <div class="footer-column">
+      <h3>QUICK LINKS</h3>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../pickup.html">Scrap Pickup</a></li>
+        <li><a href="../what-we-buy.html">What We Buy</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>SERVICES</h3>
+      <ul>
+        <li><a href="services/iron.html">Metal Recycling</a></li>
+        <li><a href="services/paper.html">Paper & Plastic</a></li>
+        <li><a href="services/e-waste.html">E-Waste</a></li>
+        <li><a href="services/factory.html">Office & Factory Scrap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Karnataka Scrap Trading | Designed by Web Digital Shuraim IT Services Pvt. Ltd.</p>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <a href="tel:+917676371230" class="call-now" title="Call Now">📞</a>
+  <a href="https://wa.me/917676371230?text=Hi%20I%20have%20scrap%20to%20sell." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Navigation Toggle
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      btn.nextElementSibling.classList.toggle('show');
+    });
+  });
+
+  // Contact Form Submit
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch('https://formspree.io/f/mkgzgvgw', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        alert("Message sent successfully!");
+
+        // Open WhatsApp with auto message
+        window.open("https://wa.me/917676371230?text=Hi%2C%20I%20have%20submitted%20the%20form%20on%20your%20website%20regarding%20scrap%20pickup.", "_blank");
+
+        form.reset();
+      } else {
+        alert("There was an error submitting the form. Please try again.");
+      }
+    }).catch(error => {
+      alert("Oops! Something went wrong.");
+    });
+  });
+
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('main-nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Optional: Close dropdown if clicked again
+  document.querySelectorAll('.dropbtn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const dropdown = btn.nextElementSibling;
+      dropdown.classList.toggle('show');
+    });
+  });
+ window.addEventListener('scroll', function () {
+    const header = document.querySelector('header');
+    if (window.scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>

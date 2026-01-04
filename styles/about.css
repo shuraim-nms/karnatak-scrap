@@ -1,0 +1,482 @@
+/* ========== TOP CONTACT BAR ========== */
+.top-contact-bar {
+  background: linear-gradient(to right, #1d1f21, #000000);
+  color: #ddc7c7;
+  font-size: 13px;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 7999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+.top-contact-bar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  gap: 10px;
+  flex-direction: row;
+}
+.top-contact-bar span {
+  margin: 0 5px;
+  color: #ffffff;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.top-contact-bar span:hover {
+  color: #00ffae;
+}
+
+/* Responsive Top Bar - Keep in One Line on Mobile */
+@media (max-width: 768px) {
+  .top-contact-bar .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+  }
+  .top-contact-bar span {
+    margin: 0 5px;
+    font-size: 12px;
+  }
+}
+/* about.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-color: #fdfefe;
+  color: #2d3436;
+}
+
+/* === ABOUT SECTION === */
+.about-section {
+  max-width: 10200px;
+  margin: 60px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.about-section h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #0984e3;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* === CARDS SECTION === */
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 60px; /* Added spacing between cards and office-info */
+}
+
+.card {
+  flex: 1 1 320px;
+  background: #ecf0f1;
+  padding: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  border-left: 5px solid #00cec9;
+}
+
+.card:hover {
+  background: #dfe6e9;
+  transform: translateY(-6px);
+  border-left-color: #0984e3;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #2d3436;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.card ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.card li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.card li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* === OFFICE INFO SECTION === */
+.office-info {
+  margin-top: 60px;
+  padding: 30px;
+  background-color: #ecf9f1;
+  border-left: 5px solid #27ae60;
+  border-radius: 10px;
+  max-width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.office-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #6c5ce7;
+  margin-bottom: 10px;
+}
+
+.office-info p {
+  font-size: 18px;
+  color: #2d3436;
+  margin: 0;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .about-section h1 {
+    font-size: 32px;
+  }
+
+  .about-section p,
+  .card p,
+  .card li,
+  .office-info p {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .office-info {
+    padding: 20px;
+  }
+}
+
+footer {
+  background: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+/* Hamburger menu hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #0984e3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 999;
+  }
+
+  nav a {
+    padding: 10px 0;
+    font-weight: 500;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  nav a:last-child {
+    border-bottom: none;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header {
+    position: relative;
+  }
+}
+/* Hamburger toggle icon */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #0984e3;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Navigation styling */
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  z-index: 999;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 300px;
+}
+.dropdown-content a {
+  padding: 10px 15px;
+  display: block;
+  color: #2d3436;
+  white-space: nowrap;
+}
+.dropdown-content a:hover {
+  background-color: #ecf0f1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsive nav for mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: none;
+    gap: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 300px;
+  padding: 1rem;
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #00cec9;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#statusMsg {
+  text-align: center;
+  margin-top: 15px;
+  color: green;
+  font-size: 15px;
+}
+/* === ABOUT SECTION === */
+.about-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.about-section h1 {
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.about-cards .card {
+  background: #f9f9f9;
+  border-left: 5px solid #4CAF50;
+  padding: 25px;
+  border-radius: 10px;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.about-cards .card:hover {
+  transform: translateY(-5px);
+}
+
+.about-cards .card h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #27ae60;
+}
+
+.about-cards .card ul {
+  padding-left: 20px;
+}
+
+.about-cards .card li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* === OFFICE INFO === */
+.office-info {
+  margin-top: 50px;
+  padding: 30px 20px;
+  background-color: #ecf9f1;
+  border-left: 5px solid #27ae60;
+  border-radius: 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.office-info h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.office-info p {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+}

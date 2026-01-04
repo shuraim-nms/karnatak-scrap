@@ -1,0 +1,334 @@
+/* ========== TOP CONTACT BAR ========== */
+.top-contact-bar {
+  background: linear-gradient(to right, #1d1f21, #000000);
+  color: #ddc7c7;
+  font-size: 13px;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 7999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+.top-contact-bar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  gap: 10px;
+  flex-direction: row;
+}
+.top-contact-bar span {
+  margin: 0 5px;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.top-contact-bar span:hover {
+  color: #00ffae;
+}
+
+/* Responsive Top Bar - Keep in One Line on Mobile */
+@media (max-width: 768px) {
+  .top-contact-bar .container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 8px 10px;
+  }
+  .top-contact-bar span {
+    margin: 0 5px;
+    font-size: 12px;
+  }
+}
+
+/* ========== HEADER ========== */
+header {
+  background: #ffffff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ecf0f1;
+  position: sticky;
+  top: 30px; /* Adjusted to appear below top-contact-bar */
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+.logo {
+  font-weight: 800;
+  font-size: 28px;
+  color: #00cec9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+nav a {
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #2c3e50;
+  padding-bottom: 4px;
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: #00cec9;
+  transition: width 0.3s ease-in-out;
+}
+nav a:hover::after, nav a.active::after {
+  width: 100%;
+}
+nav a:hover {
+  color: #0984e3;
+}
+
+/* ========== MOBILE TOGGLE BUTTON ========== */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #27ae60;
+}
+
+/* ========== MOBILE NAVIGATION ========== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    display: none;
+  }
+  nav.active {
+    display: flex;
+  }
+  nav a {
+    padding: 10px 0;
+  }
+}
+/* city.css */
+.city-page {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  color: #2d3436;
+}
+
+.city-page h1 {
+  text-align: center;
+  color: #0a3d62;
+  font-size: 28px;
+}
+
+.city-page p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.city-page ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.city-page li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.city-page li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 20px;
+  background: #25d366;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebd57;
+}
+/* Hamburger toggle icon */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #0984e3;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #ffffff;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Navigation styling */
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  z-index: 999;
+  flex-direction: column;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 300px;
+}
+.dropdown-content a {
+  padding: 10px 15px;
+  display: block;
+  color: #2d3436;
+  white-space: nowrap;
+}
+.dropdown-content a:hover {
+  background-color: #ecf0f1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsive nav for mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: none;
+    gap: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 300px;
+  padding: 1rem;
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  border-bottom: 3px solid #e74c3c;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #00cec9;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #222;
+  font-size: 0.9rem;
+  color: #aaa;
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+
+  <title>Admin Panel | Karnataka Scrap Trading</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f1f2f6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="number"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #0984e3;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #74b9ff;
+    }
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    #adminPanel, #loginPanel {
+      display: none;
+    }
+    .logout {
+      background: #d63031;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🔐 Login Section -->
+  <div class="container" id="loginPanel">
+    <h2>🔐 Admin Login</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <div class="message" id="loginMessage"></div>
+  </div>
+
+  <!-- 📦 Admin Panel Section -->
+  <div class="container" id="adminPanel">
+    <h1>📦 Admin Panel - Update Scrap Prices</h1>
+    <form id="priceForm">
+      <label>📄 Paper Scrap (₹/kg)</label>
+      <input type="number" name="paper" step="0.01" required />
+
+      <label>🧴 Plastic Scrap (₹/kg)</label>
+      <input type="number" name="plastic" step="0.01" required />
+
+      <label>💻 E-Waste (₹/kg)</label>
+      <input type="number" name="ewaste" step="0.01" required />
+
+      <label>🔌 Copper Cables (₹/kg)</label>
+      <input type="number" name="copper" step="0.01" required />
+
+      <label>🖨️ Printers (₹/unit)</label>
+      <input type="number" name="printers" step="0.01" required />
+
+      <label>🧱 Iron Scrap (₹/kg)</label>
+      <input type="number" name="iron" step="0.01" required />
+
+      <label>⚙️ Aluminium Cables (₹/kg)</label>
+      <input type="number" name="aluminium" step="0.01" required />
+
+      <label>📚 Books (₹/kg)</label>
+      <input type="number" name="books" step="0.01" required />
+
+      <label>🧲 Ferrous / Non-Ferrous (₹/kg)</label>
+      <input type="number" name="ferrous" step="0.01" required />
+
+      <button type="submit">✅ Update Prices</button>
+      <div class="message" id="message"></div>
+    </form>
+
+    <button class="logout" onclick="logout()">🚪 Logout</button>
+  </div>
+
+  <!-- 🔐 Local Login Logic -->
+   
+  <script>
+    const CORRECT_EMAIL = "karnataka@scrap.com";
+    const CORRECT_PASSWORD = "kmkscrapking";
+
+    const loginPanel = document.getElementById("loginPanel");
+    const adminPanel = document.getElementById("adminPanel");
+    const loginMessage = document.getElementById("loginMessage");
+
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (email === CORRECT_EMAIL && password === CORRECT_PASSWORD) {
+        loginPanel.style.display = "none";
+        adminPanel.style.display = "block";
+        loadPrices();
+        loginMessage.innerText = "";
+      } else {
+        loginMessage.innerText = "❌ Invalid email or password.";
+        loginMessage.style.color = "red";
+      }
+    }
+
+    function logout() {
+      loginPanel.style.display = "block";
+      adminPanel.style.display = "none";
+    }
+
+    // 🎯 Load prices
+    const apiUrl = "https://shuraimnms123.pythonanywhere.com/api";
+
+    async function loadPrices() {
+      try {
+        const res = await fetch(`${apiUrl}/prices`);
+        const data = await res.json();
+        for (const key in data) {
+          const input = document.querySelector(`[name="${key}"]`);
+          if (input) input.value = data[key];
+        }
+      } catch {
+        document.getElementById("message").innerText = "❌ Failed to load current prices.";
+        document.getElementById("message").style.color = "red";
+      }
+    }
+
+    // 🎯 Submit price update
+    document.getElementById("priceForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const payload = {};
+      formData.forEach((value, key) => {
+        payload[key] = parseFloat(value);
+      });
+
+      try {
+        const response = await fetch(`${apiUrl}/update`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        document.getElementById("message").innerText = result.message || "✅ Prices updated.";
+        document.getElementById("message").style.color = "green";
+      } catch (err) {
+        document.getElementById("message").innerText = "❌ Failed to update prices.";
+        document.getElementById("message").style.color = "red";
+      }
+    });
+
+    // Auto-show login panel initially
+    loginPanel.style.display = "block";
+  </script>
+</body>
+</html>
